@@ -64,7 +64,7 @@ app.post('/2fa/resendCode', function (req, res) {
 
 app.delete('/2fa/deleteCode', function (req, res) {
 	const codeId = req.body.codeId;
-	client.twofactor.sendCode({
+	client.twofactor.deleteCode({
 	  codeId: codeId,
 	  destinationAddress: '+12103992596',
 	  message: 'Your code is {code}'
@@ -207,7 +207,7 @@ app.post('/sms/unsubscribe',function(req,res){
 
 
 
-app.post('/webhook',function(req,res) {
+app.get('/webhook',function(req,res) {
 	console.log("WEB HOOK Triggered");
 	res.send("webhook success");
 })
